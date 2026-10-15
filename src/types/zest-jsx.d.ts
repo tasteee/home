@@ -6,14 +6,17 @@ type ZestElementAttributesT = {
 	[attributeName: string]: unknown
 }
 
-// Module augmentation requires `interface` here.
-// Add each z-* tag as home starts using it.
+// Add each z-* tag here as home starts using it.
+type ZestIntrinsicElementsT = {
+	'z-display': ZestElementAttributesT
+	'z-empty-state': ZestElementAttributesT
+	'z-eyebrow': ZestElementAttributesT
+}
+
+// TS only merges new tags into an existing interface.
+// This empty shell is the one unavoidable `interface`.
 declare module 'solid-js' {
 	namespace JSX {
-		interface IntrinsicElements {
-			'z-display': ZestElementAttributesT
-			'z-empty-state': ZestElementAttributesT
-			'z-eyebrow': ZestElementAttributesT
-		}
+		interface IntrinsicElements extends ZestIntrinsicElementsT {}
 	}
 }
