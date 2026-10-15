@@ -1,0 +1,20 @@
+.transport-bar {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+}
+
+.transport-bar-time {
+	font-family: var(--font-mono);
+	font-size: var(--font-size-small);
+	font-variant-numeric: tabular-nums;
+	color: var(--foreground);
+}
+
+.transport-bar-time.isMuted {
+	color: var(--muted-foreground);
+}
+
+.transport-bar-time.isEnd {
+	text-align: end;
+}

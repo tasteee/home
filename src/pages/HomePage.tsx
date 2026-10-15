@@ -1,9 +1,10 @@
 import './home-page.css'
+import { For, Show } from 'solid-js'
 import { appRegistry } from '../apps/registry'
+import { AppCard } from '../components/app-card/AppCard'
 
 export const HomePage = () => {
-	const appCount = appRegistry.length
-	const hasNoApps = appCount === 0
+	const hasApps = appRegistry.length > 0
 
 	return (
 		<main class='home-page'>
@@ -12,7 +13,11 @@ export const HomePage = () => {
 				<z-display size='md'>home</z-display>
 			</header>
 
-			{hasNoApps && <HomeEmptyState />}
+			<Show when={hasApps} fallback={<HomeEmptyState />}>
+				<div class='home-page-apps'>
+					<For each={appRegistry}>{(appEntry) => <AppCard app={appEntry} />}</For>
+				</div>
+			</Show>
 		</main>
 	)
 }

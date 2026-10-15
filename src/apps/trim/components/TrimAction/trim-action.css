@@ -1,0 +1,29 @@
+/* Fixed height so the layout never jumps between the
+   hint and the button. */
+.trim-action {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: var(--control-height-lg);
+}
+
+.trim-action-hint {
+	margin: 0;
+	font-size: var(--font-size-small);
+	line-height: var(--line-height-small);
+	color: var(--muted-foreground);
+	text-align: center;
+	text-wrap: balance;
+	animation: trim-action-in var(--duration-move) var(--easing-standard);
+}
+
+.trim-action-button {
+	animation: trim-action-in var(--duration-move) var(--easing-standard);
+}
+
+@keyframes trim-action-in {
+	from {
+		opacity: 0;
+		translate: 0 var(--space-xs);
+	}
+}

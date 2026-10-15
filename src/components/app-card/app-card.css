@@ -1,0 +1,59 @@
+.app-card {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--space-base);
+	padding: var(--space-base);
+	border-radius: var(--radius-xl);
+	background: var(--card);
+	color: var(--card-foreground);
+	text-decoration: none;
+	transition:
+		background-color var(--duration-fast) var(--easing-standard),
+		scale var(--duration-fast) var(--easing-standard);
+	-webkit-tap-highlight-color: transparent;
+}
+
+.app-card:hover {
+	background: var(--paper-soft);
+}
+
+.app-card:active {
+	scale: 0.98;
+}
+
+.app-card:focus-visible {
+	outline: 3px solid var(--focus-ring);
+	outline-offset: 2px;
+}
+
+.app-card-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: var(--control-height-lg);
+	height: var(--control-height-lg);
+	border-radius: var(--radius-lg);
+	background: var(--accent);
+	color: var(--on-accent);
+	font-size: var(--font-size-h4);
+}
+
+.app-card-text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	min-width: 0;
+}
+
+.app-card-name {
+	font-size: var(--font-size-body);
+	font-weight: var(--font-weight-semibold);
+	line-height: var(--line-height-small);
+}
+
+.app-card-description {
+	font-size: var(--font-size-small);
+	line-height: var(--line-height-small);
+	color: var(--muted-foreground);
+}

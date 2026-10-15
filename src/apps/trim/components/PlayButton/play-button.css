@@ -1,0 +1,31 @@
+.play-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--spacing-14);
+	height: var(--spacing-14);
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--foreground);
+	color: var(--background);
+	font-size: var(--font-size-h4);
+	cursor: pointer;
+	transition:
+		scale var(--duration-fast) var(--easing-standard),
+		opacity var(--duration-fast) var(--easing-standard);
+	-webkit-tap-highlight-color: transparent;
+}
+
+.play-button:hover {
+	opacity: 0.9;
+}
+
+.play-button:active {
+	scale: 0.92;
+}
+
+.play-button:focus-visible {
+	outline: 3px solid var(--focus-ring);
+	outline-offset: 3px;
+}

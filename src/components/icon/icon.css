@@ -1,0 +1,17 @@
+.icon {
+	display: inline-flex;
+	flex-shrink: 0;
+	width: 1.125em;
+	height: 1.125em;
+	color: inherit;
+}
+
+.icon.isLarge {
+	width: var(--font-size-h3);
+	height: var(--font-size-h3);
+}
+
+.icon svg {
+	width: 100%;
+	height: 100%;
+}

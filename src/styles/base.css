@@ -2,6 +2,8 @@
 
 :root {
 	--home-content-width: 960px;
+	--home-app-width: 560px;
+	--home-card-min-width: 280px;
 }
 
 *,

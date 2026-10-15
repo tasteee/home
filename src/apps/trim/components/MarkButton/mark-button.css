@@ -1,0 +1,66 @@
+.mark-button {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--space-xs);
+	width: 100%;
+	padding: var(--space-md) var(--space-base);
+	border: 0;
+	border-radius: var(--radius-xl);
+	background: var(--paper-soft);
+	color: var(--foreground);
+	font-family: var(--font-sans);
+	text-align: start;
+	cursor: pointer;
+	transition:
+		scale var(--duration-fast) var(--easing-standard),
+		background-color var(--duration-fast) var(--easing-standard);
+	-webkit-tap-highlight-color: transparent;
+}
+
+.mark-button:hover {
+	background: var(--line);
+}
+
+.mark-button:active {
+	scale: 0.97;
+}
+
+.mark-button:focus-visible {
+	outline: 3px solid var(--focus-ring);
+	outline-offset: 2px;
+}
+
+.mark-button-label {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-sm);
+	font-size: var(--font-size-small);
+	font-weight: var(--font-weight-semibold);
+	line-height: var(--line-height-small);
+}
+
+.mark-button-dot {
+	width: var(--space-sm);
+	height: var(--space-sm);
+	border-radius: 50%;
+	background: var(--line);
+	transition: background-color var(--duration-move) var(--easing-standard);
+}
+
+.mark-button.isSet .mark-button-dot {
+	background: var(--accent);
+}
+
+.mark-button-value {
+	font-size: var(--font-size-small);
+	line-height: var(--line-height-small);
+	color: var(--muted-foreground);
+}
+
+/* Times use the mono face so digits don't jitter. */
+.mark-button.isSet .mark-button-value {
+	font-family: var(--font-mono);
+	font-variant-numeric: tabular-nums;
+	color: var(--foreground);
+}

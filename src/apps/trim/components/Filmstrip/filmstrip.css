@@ -1,0 +1,161 @@
+.filmstrip {
+	--filmstrip-tile-height: var(--spacing-14);
+	--filmstrip-line-width: calc(var(--base-spacing) / 2);
+	--filmstrip-marker-width: var(--base-spacing);
+
+	position: relative;
+	padding-block: var(--space-sm);
+}
+
+/* Shown until the video reports its duration. */
+.filmstrip-placeholder {
+	height: var(--filmstrip-tile-height);
+	margin-inline: var(--space-base);
+	border-radius: var(--radius-md);
+	background: var(--skeleton);
+	animation: filmstrip-pulse 1.4s var(--easing-standard) infinite alternate;
+}
+
+.filmstrip-scroller {
+	display: flex;
+	overflow-x: auto;
+	overflow-y: hidden;
+	overscroll-behavior-x: contain;
+	scrollbar-width: none;
+	touch-action: pan-x;
+	-webkit-overflow-scrolling: touch;
+}
+
+.filmstrip-scroller::-webkit-scrollbar {
+	display: none;
+}
+
+/* Half-width spacers let the very start and end of the
+   video reach the center playhead. */
+.filmstrip-spacer {
+	flex: 0 0 50%;
+}
+
+.filmstrip-track {
+	position: relative;
+	flex: 0 0 var(--filmstrip-track-width);
+	height: var(--filmstrip-tile-height);
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.filmstrip-tiles {
+	display: flex;
+	height: 100%;
+	overflow: hidden;
+	border-radius: var(--radius-md);
+	background: var(--paper-soft);
+}
+
+.filmstrip-tile {
+	flex: 1 1 0;
+	height: 100%;
+	background: var(--paper-soft);
+}
+
+.filmstrip-tile-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	pointer-events: none;
+	user-select: none;
+	-webkit-user-select: none;
+	animation: filmstrip-tile-in var(--duration-move) var(--easing-standard);
+}
+
+/* ---- Selection ---- */
+
+.filmstrip-shade {
+	position: absolute;
+	inset-block: 0;
+	background: color-mix(in srgb, var(--background) 62%, transparent);
+	pointer-events: none;
+}
+
+.filmstrip-shade.isBefore {
+	inset-inline-start: 0;
+	width: var(--filmstrip-start);
+	border-start-start-radius: var(--radius-md);
+	border-end-start-radius: var(--radius-md);
+}
+
+.filmstrip-shade.isAfter {
+	inset-inline-start: var(--filmstrip-end);
+	inset-inline-end: 0;
+	border-start-end-radius: var(--radius-md);
+	border-end-end-radius: var(--radius-md);
+}
+
+.filmstrip-window {
+	position: absolute;
+	inset-block: 0;
+	inset-inline-start: var(--filmstrip-start);
+	width: calc(var(--filmstrip-end) - var(--filmstrip-start));
+	border-block: var(--filmstrip-line-width) solid var(--accent);
+	pointer-events: none;
+	animation: filmstrip-fade-in var(--duration-move) var(--easing-standard);
+}
+
+.filmstrip-marker {
+	position: absolute;
+	inset-block: calc(var(--space-xs) * -1);
+	width: var(--filmstrip-marker-width);
+	border-radius: var(--radius-sm);
+	background: var(--accent);
+	pointer-events: none;
+	animation: filmstrip-marker-in var(--duration-move) var(--easing-standard);
+}
+
+.filmstrip-marker.isStart {
+	inset-inline-start: var(--filmstrip-start);
+	translate: -50% 0;
+}
+
+.filmstrip-marker.isEnd {
+	inset-inline-start: var(--filmstrip-end);
+	translate: -50% 0;
+}
+
+/* ---- Playhead ---- */
+
+.filmstrip-playhead {
+	position: absolute;
+	inset-block: 0;
+	inset-inline-start: 50%;
+	width: var(--filmstrip-line-width);
+	border-radius: var(--radius-sm);
+	background: var(--foreground);
+	translate: -50% 0;
+	pointer-events: none;
+}
+
+@keyframes filmstrip-tile-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes filmstrip-fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes filmstrip-marker-in {
+	from {
+		opacity: 0;
+		scale: 1 0.6;
+	}
+}
+
+@keyframes filmstrip-pulse {
+	to {
+		opacity: 0.6;
+	}
+}

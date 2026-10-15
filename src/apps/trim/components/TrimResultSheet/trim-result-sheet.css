@@ -1,0 +1,20 @@
+.trim-result-sheet {
+	display: flex;
+	justify-content: center;
+	padding-block: var(--space-sm);
+}
+
+.trim-result-sheet-video {
+	display: block;
+	max-width: 100%;
+	max-height: 40dvh;
+	border-radius: var(--radius-xl);
+	background: var(--paper-soft);
+}
+
+.trim-result-sheet-actions {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+	width: 100%;
+}

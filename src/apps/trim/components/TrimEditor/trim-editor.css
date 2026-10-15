@@ -1,0 +1,19 @@
+.trim-editor {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-height: 0;
+}
+
+.trim-editor-controls {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	gap: var(--space-lg);
+	padding-block: var(--space-lg) var(--space-base);
+}
+
+/* Full-bleed filmstrip; everything else keeps a gutter. */
+.trim-editor-controls > :not(.filmstrip) {
+	margin-inline: var(--space-base);
+}

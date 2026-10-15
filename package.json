@@ -10,8 +10,12 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
+		"@mediabunny/aac-encoder": "^1.61.5",
+		"@phosphor-icons/core": "^2.1.1",
 		"@solidjs/router": "^1.0.0",
 		"@tasteee/zest": "^0.8.1",
+		"await-to-js": "^3.0.0",
+		"mediabunny": "^1.61.5",
 		"solid-js": "^1.9.17"
 	},
 	"devDependencies": {

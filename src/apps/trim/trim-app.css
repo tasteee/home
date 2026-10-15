@@ -1,0 +1,20 @@
+.trim-app {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: var(--home-app-width);
+	height: 100dvh;
+	margin-inline: auto;
+	padding-top: env(safe-area-inset-top);
+	padding-bottom: env(safe-area-inset-bottom);
+	overflow: hidden;
+	overscroll-behavior: none;
+}
+
+.trim-app-file-input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	pointer-events: none;
+}
